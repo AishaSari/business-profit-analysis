@@ -1,82 +1,106 @@
-# Business Profit Analysis and Visualization
+# Business Profit Analysis
 
 ## Project Overview
 
-This project analyzes business profitability across different geographic locations and over time using a dataset containing revenue and business counts. The analysis focuses on estimating profit metrics, performing statistical testing, regression analysis, and creating informative visualizations.
+This project analyzes business profitability across different geographic locations and over time using business revenue and business count data from Statistics Canada. The analysis focuses on estimating profit metrics, performing statistical testing, regression analysis, and creating informative visualizations to compare profitability across regions.
 
 ---
 
 ## Features and Workflow
 
-1. **Data Loading and Cleaning**  
-   - Loads a CSV dataset with business revenue and count data.  
-   - Renames columns for clarity and filters relevant metrics (Total revenue and Total number of businesses).
+1. **Data Loading and Cleaning**
+   - Loads a CSV dataset containing business revenue and business count data.
+   - Cleans and renames columns for clarity.
+   - Filters relevant variables for analysis.
 
-2. **Data Transformation and Calculation**  
-   - Pivots data into a wide format for easier analysis.  
-   - Calculates average revenue per business and estimates profit assuming a fixed profit margin (15%).  
-   - Applies winsorization to reduce the influence of extreme outliers in estimated profit.  
-   - Performs log transformation on estimated profit to normalize data distribution.
+2. **Data Transformation and Calculation**
+   - Reshapes the dataset into a wide format for analysis.
+   - Calculates average revenue per business.
+   - Estimates business profit assuming a fixed profit margin (15%).
+   - Applies winsorization to reduce the influence of extreme outliers.
+   - Performs log transformation on estimated profit to normalize the distribution.
 
-3. **Descriptive Statistics and Confidence Intervals**  
-   - Computes mean, median, standard deviation, and count of log-transformed estimated profit by location type.  
-   - Calculates 95% confidence intervals for these statistics.
+3. **Descriptive Statistics and Confidence Intervals**
+   - Computes summary statistics by location type.
+   - Calculates 95% confidence intervals for log-estimated profit.
 
-4. **Statistical Testing**  
-   - Performs independent t-tests comparing log-estimated profits between different location types (e.g., urban vs rural).
+4. **Statistical Testing**
+   - Performs independent t-tests comparing estimated profits between urban and rural areas.
 
-5. **Regression Analysis**  
-   - Builds an Ordinary Least Squares (OLS) regression model to assess the effect of location type on log-estimated profit.
+5. **Regression Analysis**
+   - Builds an Ordinary Least Squares (OLS) regression model to evaluate the relationship between location type and estimated profit.
 
-6. **Visualization**  
-   - Generates histograms showing the distribution of log-estimated profits by location.  
-   - Creates connected scatter plots illustrating trends in log-estimated profit over years, including percentage differences between locations.
+6. **Visualization**
+   - Creates histograms showing the distribution of log-estimated profits.
+   - Generates connected scatter plots illustrating yearly profit trends across locations.
 
 ---
 
 ## Technologies and Libraries
 
-- Python 3.x  
-- Pandas for data manipulation  
-- NumPy for numerical operations  
-- Seaborn and Matplotlib for visualization  
-- SciPy for statistical testing  
-- Statsmodels for regression analysis  
+- Python
+- Pandas
+- NumPy
+- Matplotlib
+- Seaborn
+- SciPy
+- Statsmodels
+
+---
+
+## Data Source
+
+This project uses data from **Statistics Canada**:
+
+**Rural Canada Business Profile, total revenue and other revenue variables of small businesses by industry, location indicator and incorporation status (Table 33-10-0584-01).**
+
+The original dataset is approximately **400 MB** and is **not included in this repository**.
+
+To run this project:
+
+1. Download the dataset from the Statistics Canada website.
+2. Place the downloaded file (`33100584.csv`) in the project root directory.
+3. Run `main.py`.
 
 ---
 
 ## Usage
 
-1. Place your dataset file named `Dataset.csv` in the project directory.  
-2. Run the Python script to perform analysis and generate outputs.  
-3. Outputs include CSV and TXT files summarizing statistics, test results, regression model, and PNG files with visualizations.
+1. Install the required packages:
+
+```bash
+pip install -r requirements.txt
+```
+
+2. Place `33100584.csv` in the project directory.
+
+3. Run:
+
+```bash
+python main.py
+```
+
+4. Generated statistics, regression results, and visualizations will be saved in the `output` folder.
 
 ---
 
 ## Output Files
 
-- `Log_Profit_Stats.csv` and `.txt`: Summary statistics for log-estimated profit.  
-- `Log_Profit_CI.csv` and `.txt`: Confidence intervals for log-estimated profit.  
-- `T_test_log_profit.txt`: Results of t-tests comparing location types.  
-- `Regression_Log_Profit.txt`: Summary of regression model results.  
-- `Log_Estimated_Profit_Distribution.png`: Histogram of log-estimated profits by location.  
-- `Connected_Scatter_Log_Profit.png`: Connected scatter plot of yearly log-estimated profits.
+- `Log_Profit_Stats.csv` / `.txt` – Summary statistics
+- `Log_Profit_CI.csv` / `.txt` – 95% confidence intervals
+- `T_test_log_profit.txt` – Independent t-test results
+- `Regression_Log_Profit.txt` – OLS regression summary
+- `Log_Estimated_Profit_Distribution.png` – Profit distribution visualization
+- `Connected_Scatter_Log_Profit.png` – Yearly profit trend visualization
 
 ---
 
 ## Project Insights
 
-This analysis provides a robust approach to estimating and comparing business profitability in urban versus rural or small-town locations over time. The combination of statistical testing, regression modeling, and visualization allows for deeper understanding of spatial and temporal trends in profitability.
+This analysis demonstrates how statistical techniques and data visualization can be used to compare business profitability across different geographic regions. The combination of descriptive statistics, hypothesis testing, regression modeling, and visualization provides insights into spatial and temporal patterns in estimated business profit.
 
 ---
 
 ## License
 
-This project is open source and available under the MIT License.
-
----
-
-## Contact
-
-For questions or feedback, please contact Aisha.
-
+This project is licensed under the MIT License.

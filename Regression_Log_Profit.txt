@@ -1,0 +1,25 @@
+                             OLS Regression Results                             
+================================================================================
+Dep. Variable:     log_estimated_profit   R-squared:                       0.008
+Model:                              OLS   Adj. R-squared:                  0.003
+Method:                   Least Squares   F-statistic:                     1.690
+Date:                  Thu, 23 Jul 2026   Prob (F-statistic):              0.195
+Time:                          09:14:23   Log-Likelihood:                -361.08
+No. Observations:                   207   AIC:                             726.2
+Df Residuals:                       205   BIC:                             732.8
+Df Model:                             1                                         
+Covariance Type:              nonrobust                                         
+===========================================================================================================
+                                              coef    std err          t      P>|t|      [0.025      0.975]
+-----------------------------------------------------------------------------------------------------------
+const                                       1.5670      0.139     11.262      0.000       1.293       1.841
+location_type_Rural and small town area     0.2516      0.194      1.300      0.195      -0.130       0.633
+==============================================================================
+Omnibus:                       26.883   Durbin-Watson:                   1.054
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):               34.568
+Skew:                           1.001   Prob(JB):                     3.12e-08
+Kurtosis:                       2.975   Cond. No.                         2.66
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.

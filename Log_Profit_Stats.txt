@@ -1,0 +1,11 @@
+Summary statistics for log-transformed estimated profit:
+
+                               mean    median       std  count
+location_type                                                 
+Functional urban area      1.566952  1.049952  1.349433    100
+Rural and small town area  1.818565  1.570148  1.429376    107
+
+Median of actual estimated profit (not log):
+location_type
+Functional urban area        1.857534
+Rural and small town area    3.807358
