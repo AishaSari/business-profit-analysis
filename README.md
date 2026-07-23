@@ -80,7 +80,7 @@ pip install -r requirements.txt
 python main.py
 ```
 
-4. Generated statistics, regression results, and visualizations will be saved in the `output` folder.
+4. Generated statistics, regression results, and visualizations will be saved in the prroject directory.
 
 ---
 
