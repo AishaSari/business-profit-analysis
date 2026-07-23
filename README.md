@@ -2,7 +2,9 @@
 
 ## Project Overview
 
-This project analyzes business profitability across different geographic locations and over time using business revenue and business count data from Statistics Canada. The analysis focuses on estimating profit metrics, performing statistical testing, regression analysis, and creating informative visualizations to compare profitability across regions.
+This project examines whether geographic location is associated with small-business profitability in Canada. Using aggregated Statistics Canada data, the analysis compares businesses located in functional urban areas with those in rural and small-town areas.
+
+Because the dataset does not contain reported profit, average revenue per business was calculated and profit was estimated using an assumed 15% profit margin. Statistical testing, regression analysis, and visualization were then used to evaluate whether the difference between urban and rural businesses was statistically meaningful.
 
 ---
 
@@ -16,13 +18,15 @@ This project analyzes business profitability across different geographic locatio
 2. **Data Transformation and Calculation**
    - Reshapes the dataset into a wide format for analysis.
    - Calculates average revenue per business.
-   - Estimates business profit assuming a fixed profit margin (15%).
-   - Applies winsorization to reduce the influence of extreme outliers.
-   - Performs log transformation on estimated profit to normalize the distribution.
+   - Estimates profit using an assumed 15% profit margin.
+   - Filters observations outside the 5th and 95th percentile thresholds.
+   - Applies a `log(1 + estimated profit)` transformation to reduce skew.
 
-3. **Descriptive Statistics and Confidence Intervals**
-   - Computes summary statistics by location type.
-   - Calculates 95% confidence intervals for log-estimated profit.
+3. **Statistical Analysis**
+   - Calculates descriptive statistics by location type.
+   - Estimates 95% confidence intervals.
+   - Performs an independent t-test comparing urban and rural log-estimated profit.
+   - Builds an OLS regression model using location type as the explanatory variable.
 
 4. **Statistical Testing**
    - Performs independent t-tests comparing estimated profits between urban and rural areas.
@@ -95,9 +99,21 @@ python main.py
 
 ---
 
-## Project Insights
+## Results and Insights
 
-This analysis demonstrates how statistical techniques and data visualization can be used to compare business profitability across different geographic regions. The combination of descriptive statistics, hypothesis testing, regression modeling, and visualization provides insights into spatial and temporal patterns in estimated business profit.
+- Rural and small-town businesses had higher mean and median estimated profits than businesses in functional urban areas.
+- The independent t-test produced a t-statistic of approximately `-1.237` and a p-value of `0.218`.
+- Because the p-value was greater than `0.05`, the observed difference was not statistically significant.
+- The 95% confidence intervals for urban and rural log-estimated profit also overlapped.
+- The yearly comparison showed that rural estimated profit remained higher, although the gap narrowed over time.
+- Overall, the results suggest that location alone was not a strong predictor of small-business profitability in this dataset.
+
+## Limitations
+
+- Profit was not directly reported in the source dataset and was estimated using an assumed 15% profit margin.
+- The dataset contains aggregated observations rather than individual business records.
+- The analysis does not control for industry, business size, business age, policy conditions, or regional economic differences.
+- The results therefore describe patterns in estimated profitability rather than establishing that geographic location causes differences in profit.
 
 ---
 
